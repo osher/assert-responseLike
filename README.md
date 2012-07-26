@@ -135,3 +135,18 @@ Misc
 =====
 It's not the most genious utility or anything, it is meant to be my first git hub project.
 I use it to test responses of web-requests to web projects, with [vows](http://vowsjs.org/).
+
+The basis of the implementation is taken from from expresso, that did not work well for me
+on windows, and the implementation there is coupled with the request firing itself - and I 
+did not like that.
+  so now I can use the same assert description language with any test-framework i like, and 
+  use whatever request tools I want.
+
+
+Lisence
+=======
+
+I don't know what i need to do to make it officual under whatever lisence is up there...
+I took from 'the community' so I give back.
+Take it, as is, I give no warantee. 
+Do with it whatever you want on your own responsibility.
