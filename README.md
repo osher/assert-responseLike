@@ -47,12 +47,14 @@ and extract it to your ./node_modules/ directory.
 
 Testing
 ============
-`npm install vows`
+after extracting first you have to :
+
+`npm install`
 
 esample of output:
 
 ```
-D:\work\assert-responseLike>npm install vows
+D:\work\assert-responseLike>npm install
 npm http GET https://registry.npmjs.org/vows
 npm http 304 https://registry.npmjs.org/vows
 npm http GET https://registry.npmjs.org/eyes
@@ -132,3 +134,4 @@ Specifications
 Misc
 =====
 It's not the most genious utility or anything, it is meant to be my first git hub project.
+I use it to test responses of web-requests to web projects, with [vows](http://vowsjs.org/).
