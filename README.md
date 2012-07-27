@@ -20,7 +20,7 @@ usage :
       , test  = require('your favorite test function of your favorite framework')
       ;
      
-    require("assert-responseLike"); 
+    require("assert-responselike"); 
 
     test( "foo", function() {
       request(url, function(response){
@@ -40,8 +40,7 @@ usage :
 Installation
 ============
 
-npm package will be supported (hopefully) soon
-untill then - download the [zip](https://github.com/osher/assert-responseLike/zipball/master) from github, 
+download the [zip](https://github.com/osher/assert-responseLike/zipball/master) from github, 
 and extract it to your ./node_modules/ directory.
 
 
