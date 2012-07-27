@@ -40,8 +40,39 @@ usage :
 Installation
 ============
 
+*using NPM*
+
+`npm install assert-responselike`
+
+esample of output:
+
+```
+D:\work\mymodule>npm install assert-responselike
+npm http GET https://registry.npmjs.org/assert-responselike
+npm http 304 https://registry.npmjs.org/assert-responselike
+assert-responselike@0.2.0 ./node_modules/assert-responselike
+```
+
+*Do it yourself*
+
 download the [zip](https://github.com/osher/assert-responseLike/zipball/master) from github, 
 and extract it to your ./node_modules/ directory.
+
+*example of structure*
+Either way - 
+expect the following:
+
+```
+└───node_modules
+    └───assert-responselike
+        │   .npmignore
+        │   index.js
+        │   package.json
+        │   README.md
+        │
+        └───test
+                assert-response-test.js
+```
 
 
 Testing
