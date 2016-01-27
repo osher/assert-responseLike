@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - "4.0"
+  - "0.14"
+  - "0.12"
+  - "0.10"
+  - "0.8"
+  - "0.6"
+
+deploy:
+  provider: npm
+  email: "osher.filter@gmail.com"
+  api_key: $NPM_ACCESS_KEY
+  on:
+    branch: master
