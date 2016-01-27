@@ -11,12 +11,9 @@
   "scripts": {
     "test": "node node_modules/vows/bin/vows --spec"
   },
-  "engines": {
-    "node": "^0.6.9"
-  },
   "dependencies": {},
   "devDependencies": {
-    "vows": "^0.8.1"
+    "vows": "*"
   },
   "optionalDependencies": {}
 }
