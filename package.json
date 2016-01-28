@@ -2,7 +2,7 @@
   "author": "Osher E <osher.filter@gmail.com>",
   "name": "assert-responselike",
   "description": "An ultra simple all-test-framework friendly utility, meant to be used with the test framework of your choice, decorates the built-in assert object with a new method responseLike(res,exp,msg)",
-  "version": "0.6.0",
+  "version": "0.6.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/osher/assert-responseLike.git"

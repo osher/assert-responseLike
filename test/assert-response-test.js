@@ -13,15 +13,15 @@ function copy(s){
 vows.describe(
   "assert response"
 ).addBatch(
-  { "\u0000\nAPI" :
-    { "assert should be decorated with the method: \n\n\tassert.responseLike ( oActualResponse, oExpectedDescr, sCustomMessage )":
+  { "API" :
+    { "assert should be decorated with the method: assert.responseLike ( oActualResponse, oExpectedDescr, sCustomMessage )":
       function(){   
           claim.isFunction(claim.responseLike);
           claim.lengthOf(claim.responseLike, 3);
       }
       
     }
-  , "\u0000\ncheck":
+  , "check":
     { topic: 
       { statusCode: 200
       , headers   : 
@@ -167,7 +167,7 @@ vows.describe(
         }
       }
     }
-  , "\u0000\nthrown errors - ":
+  , "thrown errors - ":
     { "when providing a message" :
       { "should trail status-code error messages":
         function(){ 
@@ -228,9 +228,9 @@ vows.describe(
             }
             return message;
         }
-      , "should start with 'response header'":
+      , "should start with 'mismatching response http header'":
         function(message){ 
-            claim.ok( message.indexOf('response header') == 0, "'" + message + "' starts with 'response header'");
+            claim.ok( message.indexOf('mismatching response http header') == 0, "'" + message + "' starts with 'mismatching response http header'");
         }
       , "should contain the expected response header name":
         function(message){ 
@@ -257,9 +257,9 @@ vows.describe(
             }
             return message;
         }
-      , "should start with 'response header'":
+      , "should start with 'mismatching response http header'":
         function(message){ 
-            claim.ok( message.indexOf('response header') == 0, "'" + message + "' starts with 'response header'");
+            claim.ok( message.indexOf('mismatching response http header') == 0, "'" + message + "' mismatching response http header'");
         }
       , "should contain the expected response header name":
         function(message){ 

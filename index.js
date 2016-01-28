@@ -24,7 +24,7 @@ var assert = require('assert')
   ;
 assert_response.colorize = colorize;
 assert_response.colorize.colors = { bold: 1, red: 31, green: 32, yellow: 33 };
-assert.responseLike = module.export = assert_response;
+assert.responseLike = module.exports = assert_response;
 
 function assert_response(response, res, msg) { 
     var eql, status = (res.status || res.statusCode) * 1;
@@ -36,7 +36,7 @@ function assert_response(response, res, msg) {
         assert.equal( response.statusCode * 1
         , status
         , msg + colorize('Invalid response status code.\n'
-                + '    Expected: [green]{' + status + '}'
+                +               '    Expected: [green]{' + status + '}'
                 + (eql ? '' : '\n    Got     : [red]{' + response.statusCode + '}')
                 )
         );
@@ -56,9 +56,9 @@ function assert_response(response, res, msg) {
               : expected == actual
               ;
             assert.ok( eql
-            , msg + colorize('response header '
-                    + ' -  [bold]{' + name + '}\t- [bold]{' + expected + '}'
-                    + (eql ? '' : '\n\t\t\t\t\t actual - [red]{' + actual + '}')
+            , msg + colorize('mismatching response http header : [bold]{' + name + '}\n'
+                    +               '     Expected : [bold]{' + expected + '}'
+                    + (eql ? '' : '\n     Got      : [red]{' + actual + '}')
                     )
             );
         }
@@ -98,8 +98,8 @@ function checkBody(response, expect, msg) {
 
     assert.ok( eql
     , msg + colorize('Invalid response body.\n'
-          + '    Expected: [green]{' + util.inspect(expect) + '}\n'
-          + (eql ? '' : '\n\t\t\t\t\t actual - [red]{' + util.inspect(response.body) + '}'))
+          +               '    Expected: [green]{' + util.inspect(expect) + '}\n'
+          + (eql ? '' : '\n    actual - [red]{' + util.inspect(response.body) + '}'))
     );  
   
     return eql
