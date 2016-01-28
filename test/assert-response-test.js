@@ -148,6 +148,24 @@ vows.describe(
             });
         }
       }
+    , "response bodyChecks" :
+      { "bodyChecks as array of body descriptor should perform matches against all elements" : 
+        function(response) { 
+            claim.responseLike(response, 
+              { bodyChecks: [/Some HTML/, /<h1>/, /of the body/]
+              }
+            )
+        }
+      , "bodyChecks as array body descriptor should perform matches against all elements, if any rejects - should throw" : 
+        function(response) { 
+            claim.throws(function() { 
+                claim.responseLike(response, 
+                  { bodyChecks: [/Some HTML/, /<h1>/, /not in the body/, /of the body/]
+                  }
+                )
+            })
+        }
+      }
     }
   , "\u0000\nthrown errors - ":
     { "when providing a message" :

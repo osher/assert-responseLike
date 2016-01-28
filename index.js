@@ -66,32 +66,45 @@ function assert_response(response, res, msg) {
 
     // Assert response body
     if (res.body !== undefined) { 
+        checkBody(response, res.body, msg);
+    }
     
-        eql = false;
-        if (res.body instanceof RegExp)
-            eql = res.body.test(response.body);
-        else if ('object' == typeof res.body) 
-            try{
-                assert.deepEqual( 
-                  typeof response.body == 'string' 
-                  ? JSON.parse(response.body) 
-                  : response.body
-                , res.body
-                );
-                eql = true;
-            }catch (ex){ 
-                eql = false;
-            }
-        else 
-            eql = res.body === response.body;
-
-        assert.ok( eql
-        , msg + colorize('Invalid response body.\n'
-              + '    Expected: [green]{' + util.inspect(res.body) + '}\n'
-              + (eql ? '' : '\n\t\t\t\t\t actual - [red]{' + util.inspect(response.body) + '}'))
-        );
+    if (Array.isArray(res.bodyChecks)) {
+        res.bodyChecks.some(function(expect) { 
+            eql = checkBody(response, expect, msg);
+            return !eql;
+        })
     }
 }
+
+function checkBody(response, expect, msg) {
+    var eql = false;
+    if (expect instanceof RegExp)
+        eql = expect.test(response.body);
+    else if ('object' == typeof expect) 
+        try{
+            assert.deepEqual( 
+              typeof response.body == 'string' 
+              ? JSON.parse(response.body) 
+              : response.body
+            , expect
+            );
+            eql = true;
+        }catch (ex){ 
+            eql = false;
+        }
+    else 
+        eql = expect == response.body;
+
+    assert.ok( eql
+    , msg + colorize('Invalid response body.\n'
+          + '    Expected: [green]{' + util.inspect(expect) + '}\n'
+          + (eql ? '' : '\n\t\t\t\t\t actual - [red]{' + util.inspect(response.body) + '}'))
+    );  
+  
+    return eql
+}
+
 
 function colorize(str) {
     return str.replace(/\[(\w+)\]\{([^]*?)\}/g
